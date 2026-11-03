@@ -140,8 +140,8 @@ def graceful_exit(exit_code):
     handle the exit process seamlessly, regardless of where it's running.
 
     In case the code is running inside an IPython kernel, this function raises
-    a `KaleGracefulExit` exception. This exception is expected to ke captured
-    inside the `kale.common.jputils.capture_streams` function.
+    a `KaleGracefulExit` exception. `kale.common.jputils.run_code` stops at
+    the failing cell, reports the exception and exits with an error code.
     """
     if is_ipython():
         from kale.common.jputils import KaleGracefulExit
